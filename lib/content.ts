@@ -152,6 +152,16 @@ export type Experience = {
 };
 export const EXPERIENCE: Experience[] = [
   {
+    when: "Ongoing · Independent · Live",
+    role: "Founder & Full-Stack Developer",
+    org: "InternKhojo",
+    points: [
+      "Idea → build → launch → GTM as sole founder (Next.js + Supabase).",
+      "Lead 30+ interns: delegation, coordination rhythms, weekly shipped output.",
+    ],
+    tags: ["Next.js", "Supabase", "GTM"],
+  },
+  {
     when: "Sept 2025 – Mar 2026 · Remote",
     role: "Research Intern — Applied ML",
     org: "Samsung R&D",
@@ -172,17 +182,7 @@ export const EXPERIENCE: Experience[] = [
     tags: ["PLC", "SCADA", "HMI", "VFD"],
   },
   {
-    when: "Ongoing · Independent · Live",
-    role: "Founder & Full-Stack Developer",
-    org: "InternKhojo",
-    points: [
-      "Idea → build → launch → GTM as sole founder (Next.js + Supabase).",
-      "Lead 30+ interns: delegation, coordination rhythms, weekly shipped output.",
-    ],
-    tags: ["Next.js", "Supabase", "GTM"],
-  },
-  {
-    when: "2023 – Present",
+    when: "2023 – 2026",
     role: "Joint Secretary — leading 200+ students",
     org: "ACM, Thapar Chapter",
     points: ["Elected to run TIET's largest technical society: workshops, events, collaborative builds."],
