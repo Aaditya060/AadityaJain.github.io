@@ -1,24 +1,40 @@
+"use client";
+
 import Image from "next/image";
 import { PRINCIPLES, WINS } from "@/lib/content";
+import { useMode } from "@/components/mode-context";
 import { SectionHead } from "@/components/ui/primitives";
 import { Reveal } from "@/components/reveal";
 
 export function About() {
+  const { mode } = useMode();
+  const photo =
+    mode === "founder"
+      ? {
+          src: "/images/about_me.jpeg",
+          alt: "Aaditya Jain working on hardware",
+          caption: "Builder at heart — software one day, sensors the next.",
+        }
+      : {
+          src: "/images/Me.png",
+          alt: "Portrait of Aaditya Jain",
+          caption: "TIET '27 · Electrical + CS minor.",
+        };
   return (
     <section id="about" className="scroll-mt-20 border-t border-white/10 py-24 sm:py-28" aria-label="About">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr]">
         <Reveal>
-          <figure className="m-0 overflow-hidden rounded-2xl border border-white/12">
+          <figure className="m-0 overflow-hidden rounded-2xl border border-white/12" key={mode}>
             <Image
-              src="/images/about_me.jpeg"
-              alt="Aaditya Jain working on hardware"
+              src={photo.src}
+              alt={photo.alt}
               width={640}
               height={736}
               loading="lazy"
               className="aspect-[4/4.4] w-full object-cover"
             />
             <figcaption className="border-t border-white/10 bg-ink-900 px-5 py-3 font-mono text-xs text-zinc-500">
-              Builder at heart — software one day, sensors the next.
+              {photo.caption}
             </figcaption>
           </figure>
         </Reveal>

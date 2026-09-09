@@ -6,9 +6,9 @@ import { useMode } from "@/components/mode-context";
 import type { Mode } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-const OPTIONS: { value: Mode; label: string; icon: typeof Briefcase }[] = [
-  { value: "founder", label: "Founder", icon: Briefcase },
+const OPTIONS: { value: Mode; label: string; icon: typeof Cpu }[] = [
   { value: "engineer", label: "Engineer", icon: Cpu },
+  { value: "founder", label: "Founder", icon: Briefcase },
 ];
 
 export function ModeToggle({ compact = false }: { compact?: boolean }) {

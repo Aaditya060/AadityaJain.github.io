@@ -248,5 +248,4 @@ export const WINS = [
   { v: "Top 10%", s: "Code Red 2.0 · Young Indians" },
   { v: "Bronze", s: "RoboWars, Saturnalia '24 · TIET" },
   { v: "B.Tech '27", s: "Electrical · Minor CS · TIET" },
-  { v: "EN · HI", s: "English, Hindi + video editing" },
 ];

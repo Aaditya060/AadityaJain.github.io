@@ -70,7 +70,7 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark" data-mode="founder" suppressHydrationWarning>
+    <html lang="en" className="dark" data-mode="engineer" suppressHydrationWarning>
       <body
         className={`${grotesk.variable} ${serifit.variable} ${body.variable} ${mono.variable} noise bg-[#0a0a0b] font-body text-zinc-200`}
       >

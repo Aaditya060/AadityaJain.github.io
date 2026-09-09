@@ -9,7 +9,7 @@ const ModeContext = createContext<{
 } | null>(null);
 
 export function ModeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setModeState] = useState<Mode>("founder");
+  const [mode, setModeState] = useState<Mode>("engineer");
 
   useEffect(() => {
     try {

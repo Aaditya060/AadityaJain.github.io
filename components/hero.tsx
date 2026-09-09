@@ -49,6 +49,18 @@ function HeroCopy({ mode }: { mode: Mode }) {
 
 export function Hero() {
   const { mode, setMode } = useMode();
+  const portrait =
+    mode === "founder"
+      ? {
+          src: "/images/Me.png",
+          alt: "Aaditya Jain, founder of InternKhojo",
+          caption: "Founder, InternKhojo — leading 30+",
+        }
+      : {
+          src: "/images/about_me.jpeg",
+          alt: "Aaditya Jain working on hardware",
+          caption: "Engineer, TIET '27 — hardware + software",
+        };
   return (
     <section id="top" className="relative overflow-hidden pt-16" aria-label="Intro">
       <div className="bg-blueprint pointer-events-none absolute inset-0" aria-hidden />
@@ -58,7 +70,7 @@ export function Hero() {
             <HeroCopy key={mode} mode={mode} />
           </AnimatePresence>
           <div className="mt-10 flex flex-wrap gap-2" role="group" aria-label="Switch perspective">
-            {(["founder", "engineer"] as Mode[]).map((m) => (
+            {(["engineer", "founder"] as Mode[]).map((m) => (
               <button
                 key={m}
                 onClick={() => setMode(m)}
@@ -76,23 +88,33 @@ export function Hero() {
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-sm">
-          <div className="overflow-hidden rounded-2xl border border-white/12 bg-ink-800">
-            <Image
-              src="/images/Me.png"
-              alt="Portrait of Aaditya Jain"
-              width={640}
-              height={800}
-              priority
-              className="aspect-[4/5] w-full object-cover"
-            />
-          </div>
-          <div className="mt-3 flex items-center justify-between font-mono text-xs text-zinc-500">
-            <span>TIET '27 · Electrical + CS minor</span>
-            <span className="inline-flex items-center gap-2">
-              <span className="inline-block size-2 rounded-full bg-emerald-400" aria-hidden />
-              Open to internships
-            </span>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={mode}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.35 }}
+            >
+              <div className="overflow-hidden rounded-2xl border border-white/12 bg-ink-800">
+                <Image
+                  src={portrait.src}
+                  alt={portrait.alt}
+                  width={640}
+                  height={800}
+                  priority
+                  className="aspect-[4/5] w-full object-cover"
+                />
+              </div>
+              <div className="mt-3 flex items-center justify-between font-mono text-xs text-zinc-500">
+                <span>{portrait.caption}</span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-block size-2 rounded-full bg-emerald-400" aria-hidden />
+                  Open to internships
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
       <div className="relative mx-auto max-w-6xl px-5 pb-14">
